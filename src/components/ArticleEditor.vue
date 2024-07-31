@@ -7,9 +7,10 @@
 				<div ref="editorElement">
 					<ckeditor
 						v-if="isLayoutReady"
-						v-model="config.initialData"
+						v-model="data"
 						:editor="editor"
-						:config="config" />
+						:config="config"
+						ref="editorInstance" />
 				</div>
 			</div>
 		</div>
@@ -87,6 +88,7 @@
 				isLayoutReady: false,
 				config: null, // CKEditor needs the DOM tree before calculating the configuration.
 				editor: ClassicEditor,
+				data: '<h2>Hãy bắt đầu bài viết của bạn nào!</h2>',
 			};
 		},
 		mounted() {
@@ -271,7 +273,6 @@
 						'resizeImage',
 					],
 				},
-				initialData: '<h2>Hãy bắt đầu bài viết của bạn nào!</h2>',
 				language: 'vi',
 				link: {
 					addTargetToExternalLinks: true,
@@ -375,8 +376,12 @@
 			};
 
 			this.isLayoutReady = true;
-
-			console.log('Config:', this.config);
+		},
+		emits: ['data'],
+		watch: {
+			data(n) {
+				this.$emit('data', n);
+			},
 		},
 	};
 </script>

@@ -3,7 +3,6 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import dotenv from 'dotenv';
-import path from 'path';
 
 dotenv.config();
 
@@ -11,20 +10,8 @@ dotenv.config();
 export default defineConfig({
   plugins: [
     vue(),
-  ],
-  build: {
-    lib: {
-      entry: path.resolve(__dirname, 'index.js'),
-      name: 'ArticleEditor',
-      fileName: (format) => `ckeditor5-free.${format}.js`,
-      formats: ['es', 'umd'],
-    },
-    rollupOptions: {
-      output: {
-        exports: 'named',
-      }
-    }
-  },
+  ], 
+  base: './',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
@@ -34,7 +21,9 @@ export default defineConfig({
     'process.env': {
       CLOUDINARY_NAME: process.env.CLOUDINARY_NAME,
       CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY,
-      CLOUDINARY_URL: process.env.CLOUDINARY_URL
+      CLOUDINARY_URL: process.env.CLOUDINARY_URL,
+      "CLOUDINARY_FOLDER": process.env.CLOUDINARY_FOLDER,
+      "CLOUDINARY_UPLOAD_PRESET": process.env.CLOUDINARY_UPLOAD_PRESET
     },
   },
 })

@@ -10,6 +10,10 @@
   ```json 
   "ckeditor5-free": "file:path/to/ckeditor5-free"
   ```
+  - Cài đặt module: tại thư mục gốc của repo, chạy lệnh
+  ```sh
+    npm install
+  ```
   - import vào main:
   ```js
   import ArticleEditorPlugin from 'ckeditor5-html';
@@ -36,3 +40,13 @@
     })
   ```
 - Style: `.article-editor`
+
+## Sử dụng
+- Dùng như một component bình thường
+```html
+<ArticleEditor />
+```
+- Nếu cần lấy data (ở đây data là biến nhận dữ liệu):
+```html
+<ArticleEditor @data="(d) => (data = d)" />
+```
