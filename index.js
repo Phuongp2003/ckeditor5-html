@@ -1,13 +1,12 @@
 import ArticleEditor from './src/components'
 import './src/assets/scss/ckeditor_style.scss';
-import Application from './src/App.vue'
+import CKEditor from '@ckeditor/ckeditor5-vue';
 
 const ArticleEditorPlugin = {
     install(Vue) {
+        Vue.use(CKEditor);
         Vue.component('ArticleEditor', ArticleEditor);
     }
 }
-
-export { ArticleEditor, Application };
 
 export default ArticleEditorPlugin;

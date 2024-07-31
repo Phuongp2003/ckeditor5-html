@@ -5,46 +5,34 @@
 ## Cài đặt:
 - Clone về repo của bạn
 - Từ main.js:
- - Cài global: 
- ```js
- import ArticleEditorPlugin from 'path/to/ckeditor5-html';
- // các setting của app hoặc khởi tạo app
- app.use(ArticleEditorPlugin);
- ```
- - Cài như một component(nên clone vào thư mục components):
- ```js
- import ArticleEditor from 'path/to/ckeditor5-html';
-
- export default {
-    // .. các config khác
-    components:{ ArticleEditor /* các component khác */},
-    // ..các confing khác
- }
- ```
  - Cài như một node_modules:
   - package.json: thêm vào dependencies: 
   ```json 
-  "ckeditor5-free": "file:/path/to/ckeditor5-free"
+  "ckeditor5-free": "file:path/to/ckeditor5-free"
   ```
-  - import như 2 cách trên nhưng không cần path
+  - import vào main:
+  ```js
+  import ArticleEditorPlugin from 'ckeditor5-html';
+  // các setting của app hoặc khởi tạo app
+  app.use(ArticleEditorPlugin);
+  ```
 - Cài đặt môi trường:
   - Đổi tên file .env.example thành .env
   - Nhập các thông tin cloundinary của bạn
   - Sửa vite.config.js:
   ```js
-  import dotenv from 'dotenv';
+    import dotenv from 'dotenv';
+    dotenv.config();
 
-  dotenv.config();
-
-  export default defineConfig({
-  // các config khác
-  define: {
-    'process.env': {
-      CLOUDINARY_NAME: process.env.CLOUDINARY_NAME,
-      CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY,
-      CLOUDINARY_URL: process.env.CLOUDINARY_URL
-    },
-  },
-  })
+    export default defineConfig({
+      // các config khác
+      define: {
+        'process.env': {
+          CLOUDINARY_NAME: process.env.CLOUDINARY_NAME,
+          CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY,
+          CLOUDINARY_URL: process.env.CLOUDINARY_URL
+        },
+      },
+    })
   ```
 - Style: `.article-editor`
