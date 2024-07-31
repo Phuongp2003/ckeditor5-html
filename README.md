@@ -1,6 +1,6 @@
 # ckeditor5-html (VueJS only)
 
-- Đây là bản build ckeditor5 (không sử dụng chức năng trả phí nào), sử dụng bản sửa html và clound cloudinary để lưu trữ
+- Đây là bản build ckeditor5 (không sử dụng chức năng trả phí nào), sử dụng bản sửa html và cloud cloudinary để lưu trữ
 
 ## Cài đặt:
 - Clone về repo của bạn
