@@ -1,0 +1,31 @@
+{
+  "name": "ckeditor5-html",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.js",
+  "module": "./src/index.js",
+  "exports": {
+    ".": {
+      "import": "./src/index.js",
+      "require": "./src/index.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "ckeditor5-html": "file:",
+    "dotenv": "^16.4.5",
+    "vue": "^3.4.29"
+  },
+  "devDependencies": {
+    "@ckeditor/ckeditor5-vue": "^6.0.0",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "form-data": "^4.0.0",
+    "sass": "^1.77.8",
+    "vite": "^5.3.1"
+  }
+}
